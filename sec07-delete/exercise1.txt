@@ -1,0 +1,7 @@
+MATCH (tom:Person{name: 'Tom Hanks'}),
+(other)-[hasContact:HAS_CONTACT]->(tom)
+DELETE hasContact
+
+
+MATCH (tom:Person{name: 'Tom Hanks'})<-[hasContact:HAS_CONTACT]-(:Person)
+DELETE hasContact

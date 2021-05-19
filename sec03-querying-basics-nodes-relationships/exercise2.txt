@@ -1,0 +1,4 @@
+MATCH (contact:Person)-[:HAS_CONTACT]->(contact2:Person)
+OPTIONAL MATCH ((contact2:Person)-[directed:DIRECTED]->(movie:Movie))
+return contact.name, contact2.name, movie.title
+LIMIT 25

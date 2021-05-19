@@ -1,0 +1,3 @@
+MERGE (movie:Movie{title: 'The Hateful Eight'})
+MERGE (director:Person{name: 'Quentin Tarantino'})-[directed:DIRECTED]->(movie)
+return director, directed, movie 

@@ -1,0 +1,6 @@
+MATCH (daVinci:Movie{title: 'The Da Vinci Code'})
+DETACH DELETE daVinci
+
+MATCH (daVinci:Movie{title: 'The Da Vinci Code'})
+MATCH (node)-[rel]->(daVinci)
+DELETE daVinci, rel

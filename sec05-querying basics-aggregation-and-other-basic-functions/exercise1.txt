@@ -1,0 +1,2 @@
+MATCH (person:Person)-[role:ACTED_IN]->(movie:Movie)
+RETURN toUpper(person.name) as PersonName, round(AVG(role.earnings)) as Earnt

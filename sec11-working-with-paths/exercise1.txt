@@ -1,0 +1,6 @@
+MATCH (actorMatrix:Person)-[:ACTED_IN]->(movieMatrix:Movie{title: 'The Matrix'}), 
+(actorTopGun:Person)-[:ACTED_IN]->(movieTopGun:Movie{title: 'Top Gun'}), path=shortestPath((actorMatrix)-[:HAS_CONTACT*..20]->(actorTopGun))
+WHERE actorMatrix <> actorTopGun
+RETURN  movieMatrix, movieTopGun, path, length(path) as pathLength
+ORDER BY pathLength
+LIMIT 3

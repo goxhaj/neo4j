@@ -1,0 +1,39 @@
+Q1
+WITH ( NULL AND false ) AS result
+RETURN result
+A1 
+false
+
+Q2
+WITH ( NULL OR false ) AS result
+RETURN result
+A2
+null
+
+Q3
+WITH ( 99 IN [1,2,NULL,99] ) AS result
+RETURN result
+A3
+true
+
+Q4
+WITH ( NULL + [1,2,3] ) AS result
+RETURN result
+A4
+null
+
+Q5
+WITH ( [1, NULL] + [2, NULL] ) AS result
+RETURN result
+A5
+[1, null, 2, null]
+
+Q6
+WITH ( NULL IN [1,NULL,2,3] ) AS result
+RETURN result
+A6
+null
+
+MATCH (person:Person)
+WITH (['Adress1', 'Adress2'] + [person.adress]) as partDestinations
+RETURN [adress in partDestinations WHERE adress IN NOT NULL | adress] AS partDestinations 

@@ -1,0 +1,4 @@
+MATCH (quentin:Person{name: 'Quentin Tarantino'})
+MERGE (zoe:Person{name: 'Zoe Bell', born: 1978})-[acted:ACTED_IN{earnings: 10000000}]->(movie:Movie{title: 'The Hateful Eight'})
+MERGE (quentin)-[hasContact:HAS_CONTACT]->(zoe)
+return zoe, acted, movie, quentin, hasContact 

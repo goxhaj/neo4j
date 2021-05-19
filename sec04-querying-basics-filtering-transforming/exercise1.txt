@@ -1,0 +1,6 @@
+MATCH (actor:Person)-[:HAS_CONTACT]->(contact:Person)-[role:ACTED_IN]->(movie:Movie)
+WHERE contact.born>=1960 
+AND role.earnings > 10000000 
+AND  actor.name='Tom Hanks'
+RETURN contact.name, contact.born, role.earnings
+LIMIT 25

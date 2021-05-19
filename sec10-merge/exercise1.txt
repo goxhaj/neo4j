@@ -1,0 +1,6 @@
+MATCH (k:Person{name: 'Keanu Reeves'})
+MATCH (m:Movie{title: 'Top Gun'})
+MERGE (k)-[v:VIEWED]->(m)
+ON CREATE SET v.count=1
+ON MATCH SET v.count=v.count+1
+return k,v,m

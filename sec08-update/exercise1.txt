@@ -1,0 +1,5 @@
+MATCH (actor:Person)-[actedIn:ACTED_IN]->(movie:Movie)
+WITH actor, sum(actedIn.earnings) as total_earnings
+WHERE total_earnings > 50000000
+SET actor:Rich, actor.total_earnings=total_earnings
+RETURN actor

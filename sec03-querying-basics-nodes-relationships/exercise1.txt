@@ -1,0 +1,4 @@
+MATCH (personA:Person)-[hasContactAB:HAS_CONTACT]->(personB:Person)-[hasContactBC:HAS_CONTACT]->(personC:Person)
+WHERE personA<>personC
+return personA.name, personB.name, personC.name
+LIMIT 1
